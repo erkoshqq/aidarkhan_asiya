@@ -3,6 +3,10 @@ import { motion, useInView, AnimatePresence } from 'framer-motion'
 
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyCf2TzFbPWUUCgMSGWauwXJUyUxb21Dvi8Pk8YqgfdD-PiHvyCuy_3zJvmIl9SmuCM/exec'
 
+const SAMPLE_WISHES = [
+
+]
+
 export default function WishesSection({ t }) {
   const ref = useRef(null)
   const scrollRef = useRef(null)
