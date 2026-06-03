@@ -12,14 +12,14 @@ export default function Header({ lang, setLang, visible }) {
       animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : -20 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="font-display text-[1.05rem] font-light text-text-mid tracking-[0.12em]">
+      <div className="font-display text-[1.05rem] font-bold text-text-mid tracking-[0.12em]">
         А&nbsp;&amp;&nbsp;А
       </div>
 
       <div className="flex border border-gold-light">
         <button
           onClick={() => setLang('kk')}
-          className={`px-3 py-2 font-body text-[9px] font-light tracking-[0.25em] uppercase transition-all duration-300 ${
+          className={`px-3 py-2 font-body text-[9px] font-bold tracking-[0.25em] uppercase transition-all duration-300 ${
             lang === 'kk' ? 'bg-gold text-ivory' : 'text-text-soft hover:text-text-mid'
           }`}
         >
@@ -27,7 +27,7 @@ export default function Header({ lang, setLang, visible }) {
         </button>
         <button
           onClick={() => setLang('ru')}
-          className={`px-3 py-2 font-body text-[9px] font-light tracking-[0.25em] uppercase transition-all duration-300 ${
+          className={`px-3 py-2 font-body text-[9px] font-bold tracking-[0.25em] uppercase transition-all duration-300 ${
             lang === 'ru' ? 'bg-gold text-ivory' : 'text-text-soft hover:text-text-mid'
           }`}
         >

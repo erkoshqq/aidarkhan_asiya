@@ -8,7 +8,7 @@ export default function InvitationSection({ t }) {
   return (
     <section ref={ref} className="py-24 px-5 max-w-[680px] mx-auto text-center">
       <motion.span
-        className="font-body text-[9px] font-light tracking-[0.45em] text-gold uppercase mb-6 block"
+        className="font-body text-[20px] font-bold tracking-[0.45em] text-gold uppercase mb-6 block"
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 0.8 }}
@@ -50,15 +50,15 @@ export default function InvitationSection({ t }) {
 
           <div className="w-10 h-px mx-auto my-5" style={{ background: '#E8D5A3' }} />
 
-          <h2 className="font-display text-[1.05rem] font-light text-text-mid mb-5 leading-relaxed">
+          <h2 className="font-display text-[20px] font-bold text-text-mid mb-5 leading-relaxed">
             {t.invTitle}
           </h2>
 
-          <p className="font-body font-light text-[14px] text-text-mid leading-[2] max-w-md mx-auto">
+          <p className="font-body font-medium text-[18px] text-text-mid leading-[2] max-w-md mx-auto">
             {t.invText}
           </p>
 
-          <div className="mt-8 font-body text-[10px] font-light tracking-[0.35em] text-gold uppercase">
+          <div className="mt-8 font-body text-[10px] font-bold tracking-[0.35em] text-gold uppercase">
             01.08.2026 · 13:00 · Dastur Hall
           </div>
         </div>

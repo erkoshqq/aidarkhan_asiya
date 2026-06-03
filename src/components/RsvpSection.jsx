@@ -54,7 +54,7 @@ export default function RsvpSection({ t }) {
     >
       <div className="max-w-[480px] mx-auto">
         <motion.span
-          className="font-body text-[9px] font-light tracking-[0.45em] text-gold uppercase mb-5 block"
+          className="font-body text-[9px] font-bold tracking-[0.45em] text-gold uppercase mb-5 block"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8 }}
@@ -63,7 +63,7 @@ export default function RsvpSection({ t }) {
         </motion.span>
 
         <motion.h2
-          className="font-display text-[clamp(1.6rem,5vw,2.4rem)] font-light text-text-deep mb-2"
+          className="font-display text-[clamp(2rem,5vw,2.4rem)] font-bold text-text-deep mb-2"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, delay: 0.1 }}
@@ -72,7 +72,7 @@ export default function RsvpSection({ t }) {
         </motion.h2>
 
         <motion.p
-          className="font-body text-[12px] font-light text-text-soft mb-8"
+          className="font-body text-[15px] font-bold text-text-soft mb-8"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -94,7 +94,7 @@ export default function RsvpSection({ t }) {
             >
               {/* Name */}
               <div className="mb-5">
-                <label className="font-body text-[9px] font-light tracking-[0.35em] uppercase text-text-soft block mb-2">
+                <label className="font-body text-[12px] font-bold tracking-[0.35em] uppercase text-text-soft block mb-2">
                   {t.rsvpNameLabel}
                 </label>
                 <input
@@ -102,7 +102,7 @@ export default function RsvpSection({ t }) {
                   value={name}
                   onChange={(e) => { setName(e.target.value); setNameError(false) }}
                   placeholder={t.rsvpNamePh}
-                  className="w-full px-4 py-3 font-body font-light text-[14px] text-text-deep bg-ivory outline-none transition-all duration-300"
+                  className="w-full px-4 py-3 font-body font-bold text-[14px] text-text-deep bg-ivory outline-none transition-all duration-300"
                   style={{
                     border: nameError ? '1px solid #C9A96E' : '1px solid #E8D5A3',
                     borderRadius: 0,
@@ -112,7 +112,7 @@ export default function RsvpSection({ t }) {
 
               {/* Options */}
               <div className="mb-6">
-                <label className="font-body text-[9px] font-light tracking-[0.35em] uppercase text-text-soft block mb-3">
+                <label className="font-body text-[12px] font-bold tracking-[0.35em] uppercase text-text-soft block mb-3">
                   {t.rsvpStatusLabel}
                 </label>
                 <div className="flex flex-col gap-2">
@@ -137,7 +137,7 @@ export default function RsvpSection({ t }) {
                           <div className="w-1.5 h-1.5 rounded-full bg-ivory" />
                         )}
                       </div>
-                      <span className="font-body font-light text-[13px] text-text-mid">
+                      <span className="font-body font-bold text-[13px] text-text-mid">
                         {opt.label}
                       </span>
                     </button>
@@ -148,7 +148,7 @@ export default function RsvpSection({ t }) {
               <button
                 onClick={handleSubmit}
                 disabled={loading}
-                className="w-full py-4 font-body text-[10px] font-light tracking-[0.4em] uppercase transition-all duration-400 relative overflow-hidden group"
+                className="w-full py-4 font-body text-[15px] font-bold tracking-[0.4em] uppercase transition-all duration-400 relative overflow-hidden group"
                 style={{ border: '1px solid #C9A96E', color: '#9B7B3E', background: 'transparent' }}
               >
                 <span className="absolute inset-0 bg-gold transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
@@ -157,7 +157,7 @@ export default function RsvpSection({ t }) {
                 </span>
               </button>
 
-              <p className="font-body text-[10px] font-light text-text-soft text-center mt-4 tracking-[0.1em]">
+              <p className="font-body text-[10px] font-bold text-text-soft text-center mt-4 tracking-[0.1em]">
                 {t.rsvpNote}
               </p>
             </motion.div>
@@ -173,7 +173,7 @@ export default function RsvpSection({ t }) {
               <div className="font-display text-[2rem] font-light italic text-text-deep mb-3">
                 {t.thankTitle}
               </div>
-              <div className="font-body font-light text-[13px] text-text-mid leading-relaxed">
+              <div className="font-body font-bold text-[15px] text-text-mid leading-relaxed">
                 {t.thankText}
               </div>
             </motion.div>

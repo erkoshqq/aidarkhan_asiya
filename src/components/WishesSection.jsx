@@ -76,7 +76,7 @@ export default function WishesSection({ t }) {
         {/* Header */}
         <div className="text-center mb-10">
           <motion.span
-            className="font-body text-[9px] font-light tracking-[0.45em] text-gold uppercase mb-5 block"
+            className="font-body text-[9px] font-bold tracking-[0.45em] text-gold uppercase mb-5 block"
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8 }}
@@ -85,7 +85,7 @@ export default function WishesSection({ t }) {
           </motion.span>
 
           <motion.h2
-            className="font-display text-[clamp(1.6rem,5vw,2.4rem)] font-light text-text-deep mb-2"
+            className="font-display text-[clamp(2rem,5vw,2.4rem)] font-bold text-text-deep mb-2"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.1 }}
@@ -94,7 +94,7 @@ export default function WishesSection({ t }) {
           </motion.h2>
 
           <motion.p
-            className="font-body text-[12px] font-light text-text-soft"
+            className="font-body text-[15px] font-bold text-text-soft"
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -164,10 +164,10 @@ export default function WishesSection({ t }) {
                 style={{ minWidth: '100%' }}
               >
                 <span className="text-2xl mb-3" style={{ color: '#C9A96E', opacity: 0.6 }}>✦</span>
-                <p className="font-display text-[1rem] font-light italic mb-2" style={{ color: '#9B7B3E' }}>
+                <p className="font-display text-[2rem] font-bold italic mb-2" style={{ color: '#9B7B3E' }}>
                   {t.wEmpty}
                 </p>
-                <p className="font-body text-[11px] font-light tracking-[0.15em]" style={{ color: '#B89A6E', opacity: 0.8 }}>
+                <p className="font-body text-[15px] font-bold tracking-[0.15em]" style={{ color: '#B89A6E', opacity: 0.8 }}>
                   {t.wishesSub}
                 </p>
               </div>
@@ -193,7 +193,7 @@ export default function WishesSection({ t }) {
                       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                     >
                       {w.isNew && (
-                        <span className="absolute top-2 right-3 font-body text-[8px] text-gold">✦</span>
+                        <span className="absolute top-2 right-3 font-body text-[1px] text-gold">✦</span>
                       )}
 
                       <span
@@ -203,7 +203,7 @@ export default function WishesSection({ t }) {
                         "
                       </span>
 
-                      <p className="font-body font-light text-[13px] text-text-mid leading-relaxed">
+                      <p className="font-body font-bold text-[13px] text-text-mid leading-relaxed">
                         {w.text}
                       </p>
 
@@ -228,7 +228,7 @@ export default function WishesSection({ t }) {
         {/* Divider between list and form */}
         <div className="flex items-center gap-4 mb-8">
           <div className="flex-1 h-px" style={{ background: 'linear-gradient(90deg, transparent, #E8D5A3)' }} />
-          <span className="font-body text-[9px] font-light tracking-[0.4em] text-gold uppercase">
+          <span className="font-body text-[12px] font-bold tracking-[0.4em] text-gold uppercase">
             {t.wWishLabel}
           </span>
           <div className="flex-1 h-px" style={{ background: 'linear-gradient(90deg, #E8D5A3, transparent)' }} />
@@ -241,7 +241,7 @@ export default function WishesSection({ t }) {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <div className="mb-4">
-            <label className="font-body text-[9px] font-light tracking-[0.35em] uppercase text-text-soft block mb-2">
+            <label className="font-body text-[12px] font-bold tracking-[0.35em] uppercase text-text-soft block mb-2">
               {t.wNameLabel}
             </label>
             <input
@@ -249,7 +249,7 @@ export default function WishesSection({ t }) {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder={t.wNamePh}
-              className="w-full px-4 py-3 font-body font-light text-[13px] text-text-deep bg-ivory outline-none transition-all duration-300"
+              className="w-full px-4 py-3 font-body font-bold text-[13px] text-text-deep bg-ivory outline-none transition-all duration-300"
               style={{ border: '1px solid #E8D5A3', borderRadius: 0 }}
             />
           </div>
@@ -260,7 +260,7 @@ export default function WishesSection({ t }) {
               onChange={(e) => setText(e.target.value)}
               placeholder={t.wWishPh}
               rows={3}
-              className="w-full px-4 py-3 font-body font-light text-[13px] text-text-deep bg-ivory outline-none transition-all duration-300 resize-none"
+              className="w-full px-4 py-3 font-body font-bold text-[13px] text-text-deep bg-ivory outline-none transition-all duration-300 resize-none"
               style={{ border: '1px solid #E8D5A3', borderRadius: 0 }}
             />
           </div>
@@ -268,7 +268,7 @@ export default function WishesSection({ t }) {
           <button
             onClick={handleSubmit}
             disabled={loading || !name.trim() || !text.trim()}
-            className="w-full py-3 font-body text-[10px] font-light tracking-[0.35em] uppercase relative overflow-hidden group disabled:opacity-40"
+            className="w-full py-3 font-body text-[15px] font-bold tracking-[0.35em] uppercase relative overflow-hidden group disabled:opacity-40"
             style={{ border: '1px solid #C9A96E', color: '#9B7B3E', background: 'transparent' }}
           >
             <span className="absolute inset-0 bg-gold transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 group-disabled:hidden" />
