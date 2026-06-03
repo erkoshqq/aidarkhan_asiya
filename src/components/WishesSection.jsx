@@ -3,13 +3,6 @@ import { motion, useInView, AnimatePresence } from 'framer-motion'
 
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyCf2TzFbPWUUCgMSGWauwXJUyUxb21Dvi8Pk8YqgfdD-PiHvyCuy_3zJvmIl9SmuCM/exec'
 
-const SAMPLE_WISHES = [
-  { id: 'sample1', name: 'Айнұр', text: 'Бақытты болыңдар! Өмірлеріңіз гүл болсын ❤️', date: '01.07.2026' },
-  { id: 'sample2', name: 'Самат', text: 'Ұзақ ғұмыр тілеймін! Отбасыларыңыз берекелі болсын.', date: '01.07.2026' },
-  { id: 'sample3', name: 'Динара', text: 'Махаббаттарың мәңгі болсын, бір-біріңді жақсы көріңдер!', date: '02.07.2026' },
-  { id: 'sample4', name: 'Арман', text: 'Жастарға бақыт тілеймін! Үйлеріңе береке, жандарыңа сүйеніш болсын.', date: '03.07.2026' },
-]
-
 export default function WishesSection({ t }) {
   const ref = useRef(null)
   const scrollRef = useRef(null)
