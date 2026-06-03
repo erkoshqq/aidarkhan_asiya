@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx0R6U-jY7D23fGXD_3nHD9fZFT66JYwZs2xzDGjbo9CE5XWaAPXLDaj2RrGf5WEuit/exec'
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyCf2TzFbPWUUCgMSGWauwXJUyUxb21Dvi8Pk8YqgfdD-PiHvyCuy_3zJvmIl9SmuCM/exec'
 
 export default function WishesSection({ t }) {
   const ref = useRef(null)
@@ -165,12 +165,10 @@ export default function WishesSection({ t }) {
               >
                 <span className="text-2xl mb-3" style={{ color: '#C9A96E', opacity: 0.6 }}>✦</span>
                 <p className="font-display text-[1rem] font-light italic mb-2" style={{ color: '#9B7B3E' }}>
-                  {t.lang === 'kk'
-                    ? 'Әлі тілек жоқ'
-                    : 'Пока нет пожеланий'}
+                  {t.wEmpty}
                 </p>
                 <p className="font-body text-[11px] font-light tracking-[0.15em]" style={{ color: '#B89A6E', opacity: 0.8 }}>
-                  {t.wEmpty}
+                  {t.wishesSub}
                 </p>
               </div>
             ) : (
