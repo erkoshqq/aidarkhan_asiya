@@ -1,5 +1,6 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { Medallion, KazakhDivider } from './KazakhOrnaments'
 
 export default function InvitationSection({ t }) {
   const ref = useRef(null)
@@ -7,6 +8,7 @@ export default function InvitationSection({ t }) {
 
   return (
     <section ref={ref} className="py-24 px-5 max-w-[680px] mx-auto text-center">
+      <Medallion />
       <motion.span
         className="font-body text-[20px] font-bold tracking-[0.45em] text-gold uppercase mb-6 block"
         initial={{ opacity: 0 }}

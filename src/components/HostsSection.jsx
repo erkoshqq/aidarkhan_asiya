@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 
+
 export default function HostsSection({ t }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
