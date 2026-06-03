@@ -2,7 +2,7 @@ import { useState, useRef } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 
 // ⬇️ Replace with your Google Apps Script Web App URL
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyCf2TzFbPWUUCgMSGWauwXJUyUxb21Dvi8Pk8YqgfdD-PiHvyCuy_3zJvmIl9SmuCM/exec'
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx0R6U-jY7D23fGXD_3nHD9fZFT66JYwZs2xzDGjbo9CE5XWaAPXLDaj2RrGf5WEuit/exec'
 
 export default function RsvpSection({ t }) {
   const ref = useRef(null)

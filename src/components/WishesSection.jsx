@@ -1,11 +1,7 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyCf2TzFbPWUUCgMSGWauwXJUyUxb21Dvi8Pk8YqgfdD-PiHvyCuy_3zJvmIl9SmuCM/exec'
-
-const SAMPLE_WISHES = [
-
-]
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx0R6U-jY7D23fGXD_3nHD9fZFT66JYwZs2xzDGjbo9CE5XWaAPXLDaj2RrGf5WEuit/exec'
 
 export default function WishesSection({ t }) {
   const ref = useRef(null)
@@ -15,14 +11,26 @@ export default function WishesSection({ t }) {
   const [name, setName] = useState('')
   const [text, setText] = useState('')
   const [loading, setLoading] = useState(false)
-  const [wishes, setWishes] = useState(() => {
-    try {
-      const stored = JSON.parse(localStorage.getItem('wedding_wishes') || '[]')
-      return [...stored, ...SAMPLE_WISHES]
-    } catch {
-      return SAMPLE_WISHES
+  const [fetching, setFetching] = useState(true)
+  const [wishes, setWishes] = useState([])
+
+  // Загружаем пожелания из Google Sheets при монтировании
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const res = await fetch(`${APPS_SCRIPT_URL}?type=wishes`)
+        const data = await res.json()
+        if (Array.isArray(data.wishes)) {
+          setWishes(data.wishes)
+        }
+      } catch (_) {
+        // если не получилось — просто показываем пусто
+      } finally {
+        setFetching(false)
+      }
     }
-  })
+    load()
+  }, [])
 
   const handleSubmit = async () => {
     if (!name.trim() || !text.trim()) return
@@ -47,12 +55,7 @@ export default function WishesSection({ t }) {
       isNew: true,
     }
 
-    const updated = [newWish, ...wishes]
-    setWishes(updated)
-
-    const toStore = updated.filter((w) => !w.id?.startsWith('sample'))
-    localStorage.setItem('wedding_wishes', JSON.stringify(toStore.slice(0, 50)))
-
+    setWishes((prev) => [newWish, ...prev])
     setName('')
     setText('')
     setLoading(false)
@@ -132,13 +135,44 @@ export default function WishesSection({ t }) {
               WebkitOverflowScrolling: 'touch',
             }}
           >
-            {/* Hide scrollbar in webkit */}
             <style>{`.wishes-scroll::-webkit-scrollbar { display: none; }`}</style>
 
-            {wishes.length === 0 ? (
-              <p className="font-body font-light text-[12px] text-text-soft text-center py-12 tracking-[0.2em]">
-                {t.wEmpty}
-              </p>
+            {fetching ? (
+              /* Скелетон загрузки */
+              <div className="flex gap-4 pb-2">
+                {[1, 2, 3].map((i) => (
+                  <div
+                    key={i}
+                    className="flex-shrink-0 px-5 py-5"
+                    style={{
+                      width: '240px',
+                      background: 'rgba(253,251,247,0.5)',
+                      border: '1px solid #E8D5A3',
+                    }}
+                  >
+                    <div className="h-3 rounded mb-3" style={{ background: '#E8D5A3', width: '60%', opacity: 0.5 }} />
+                    <div className="h-2 rounded mb-2" style={{ background: '#E8D5A3', opacity: 0.4 }} />
+                    <div className="h-2 rounded mb-2" style={{ background: '#E8D5A3', width: '80%', opacity: 0.4 }} />
+                    <div className="h-2 rounded" style={{ background: '#E8D5A3', width: '50%', opacity: 0.3 }} />
+                  </div>
+                ))}
+              </div>
+            ) : wishes.length === 0 ? (
+              /* Пусто — красивая заглушка */
+              <div
+                className="flex flex-col items-center justify-center py-10 px-6 text-center"
+                style={{ minWidth: '100%' }}
+              >
+                <span className="text-2xl mb-3" style={{ color: '#C9A96E', opacity: 0.6 }}>✦</span>
+                <p className="font-display text-[1rem] font-light italic mb-2" style={{ color: '#9B7B3E' }}>
+                  {t.lang === 'kk'
+                    ? 'Әлі тілек жоқ'
+                    : 'Пока нет пожеланий'}
+                </p>
+                <p className="font-body text-[11px] font-light tracking-[0.15em]" style={{ color: '#B89A6E', opacity: 0.8 }}>
+                  {t.wEmpty}
+                </p>
+              </div>
             ) : (
               <div
                 className="wishes-scroll flex gap-4 pb-2"
